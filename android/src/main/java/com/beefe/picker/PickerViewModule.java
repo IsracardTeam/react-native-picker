@@ -351,7 +351,7 @@ public class PickerViewModule extends ReactContextBaseJavaModule implements Life
                 Window window = dialog.getWindow();
                 if (window != null) {
                     //added type system alert instead of toast
-                    layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+                    layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
                     layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
                     layoutParams.format = PixelFormat.TRANSPARENT;
                     layoutParams.windowAnimations = R.style.PickerAnim;
