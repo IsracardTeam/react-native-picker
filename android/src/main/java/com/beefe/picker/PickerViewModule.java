@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import android.os.Build;
 import com.beefe.picker.util.MIUIUtils;
 import com.beefe.picker.view.OnSelectedListener;
 import com.beefe.picker.view.PickerViewAlone;
@@ -351,7 +352,12 @@ public class PickerViewModule extends ReactContextBaseJavaModule implements Life
                 Window window = dialog.getWindow();
                 if (window != null) {
                     //added type system alert instead of toast
-                    layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+                   if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                        layoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
+                    }
+                    else{
+                         layoutParams.type = WindowManager.LayoutParams.TYPE_TOAST;
+                    }                    
                     layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
                     layoutParams.format = PixelFormat.TRANSPARENT;
                     layoutParams.windowAnimations = R.style.PickerAnim;
